@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'examTwoApp/style.css' %}">
+    <title>Index</title>
+</head>
+<body>
+    <body>
+    {% if messages %} 
+        {% for message in messages %}
+            <h2>{{ message }}</h2>
+        {% endfor %} 
+    {% endif %} 
+    <h2>Welcome!</h2>
+    <form class='index_forms' action='/examTwoApp/register' method='POST'>
+        {% csrf_token %}
+        <fieldset>
+            <legend>Registration</legend>
+            Name: <input type='text' name='name'>
+            Username: <input type='text' name='username'>
+            Password: <input type='password' name='password'>
+            *Password should be at least 8 characters<br><br>
+            Confirm PW: <input type='password' name='confirm_password'>
+            Date Hired: <input type='date' name='date_hired'><br>
+            <input class='register_login' type='submit' value='Register'>
+        </fieldset>
+    </form>
+    <form class='index_forms' action='/examTwoApp/login' method='post'>
+        {% csrf_token %}
+        <fieldset>
+            <legend>Login</legend>
+            <label>Username: </label><input type='text' name='username'>
+            <label>Password: </label><input type='password' name='password'><br>
+            <input class='register_login' type='submit' value='Login'>
+        </fieldset>
+    </form>
+</body>
+</html>

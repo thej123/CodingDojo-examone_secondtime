@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'examTwoApp/style.css' %}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1> Welcome {{ user.name }}!</h1>
+    {% if messages %} 
+        {% for message in messages %}
+            <h2>{{ message }}</h2>
+        {% endfor %} 
+    {% endif %} 
+    <a href='/examTwoApp/logout'>Logout</a>
+
+    <a href='/examTwoApp/create'>Add Item</a>
+    
+
+</body>
+</html>
